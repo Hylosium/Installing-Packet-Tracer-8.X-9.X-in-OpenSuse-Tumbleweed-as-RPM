@@ -16,8 +16,8 @@ installation understandable and reproducible.
 
 - Distribution: openSUSE (tested on KDE Plasma)
 - Installer source: Cisco Networking Academy (`.deb`)
-- Packet Tracer version: 9.0
-- Desktop environment: KDE
+- Packet Tracer version: 9.0 and 8.2.2
+- Desktop environment: KDE Plasma
 
 SELinux was present on the system but running in permissive mode and did not
 affect the installation.
@@ -50,6 +50,10 @@ mkdir ~/pt-extract
 cd ~/pt-extract
 
 ar x ~/Downloads/CiscoPacketTracer_900_Ubuntu_64bit.deb
+
+## or:
+
+ar x  ~/Downloads/CiscoPacketTracer822_amd64_signed.deb
 ls
 ```
 
@@ -64,18 +68,23 @@ tar -xf data.tar.* -C data
 sudo cp -r data/opt /
 ```
 
-For Packet Tracer 9.0, the installation consists almost entirely of the
+For Packet Tracer 9.0 and 8.X, the installation consists almost entirely of the
 `/opt/pt` directory.
 
 ---
 
 ## Command-Line Entry Point
 
+For 9.X versions:
 A symbolic link is created to make the AppImage accessible from the command
 line.
 
 ```sh
 sudo ln -sf /opt/pt/packettracer.AppImage /usr/local/bin/packettracer
+```
+For 8.X versions (is not an appimage):
+```sh
+sudo ln -sf /opt/pt/packettracer /usr/local/bin/packettracer
 ```
 
 ---
